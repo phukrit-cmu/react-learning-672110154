@@ -2,7 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Product({ item }) {
-  const productImage = require(`../../assets/${item.imageURL}`);
+  // Some items coming from remote may have missing/undefined imageURL.
+  // Guard the dynamic require so it doesn't attempt to load './undefined'.
+  let productImage;
+  try {
+    if (item && item.imageURL) {
+      productImage = require(`../../assets/${item.imageURL}`);
+    }
+  } catch (e) {
+    // ignore and fall back to default below
+  }
+
+  // fallback image (use an existing asset in the project)
+  if (!productImage) {
+    productImage = require('../../assets/shirt.jpg');
+  }
   return (
     <li className="Products">
       <a href={`/update-product/${item.id}`}>

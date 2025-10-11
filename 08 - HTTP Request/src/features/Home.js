@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Product from './Product';
@@ -11,12 +11,15 @@ export default function Home() {
 
   async function getProducts() {
     const products = await axios.get(
-      'https://apimocha.com/react-redux-class/products'
+      'https://68e9f9e9f1eeb3f856e598b4.mockapi.io/react-redux-class/products'
     );
     setProducts(products.data);
   }
 
-  getProducts();
+  useEffect(() => {
+    getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function addProduct(product) {
     const newProduct = { id: ++currentProductId, ...product };
