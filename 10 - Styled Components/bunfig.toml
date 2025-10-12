@@ -1,0 +1,15 @@
+# Bun Configuration for Styled Components Project
+
+# Enable TypeScript support
+[typescript]
+strict = true
+
+# Runtime options
+[install]
+exact = false
+cache = true
+
+# Define a custom entrypoint if needed
+[run]
+# This would be used for direct script execution
+bun-run = true
