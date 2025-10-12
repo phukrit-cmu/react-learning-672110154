@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 function AddForm({ addProduct }) {
-  const [name, setName] = useState('');
-  const [imageURL, setImageURL] = useState('');
-  const [type, setType] = useState('');
+  const [name, setName] = useState("");
+  const [imageURL, setImageURL] = useState("");
+  const [type, setType] = useState("");
 
   function onSubmit(event) {
     event.preventDefault();
@@ -12,7 +12,7 @@ function AddForm({ addProduct }) {
   }
 
   return (
-    <div>
+    <>
       <h1>Add Product</h1>
       <form id="create-form" onSubmit={onSubmit}>
         <div className="input-group">
@@ -50,12 +50,12 @@ function AddForm({ addProduct }) {
 
         <button type="submit">Add product</button>
       </form>
-    </div>
+    </>
   );
 }
 
 AddForm.propTypes = {
-  addProduct: PropTypes.func.isRequired
+  addProduct: PropTypes.func.isRequired,
 };
 
 export default AddForm;
