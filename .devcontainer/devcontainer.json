@@ -1,0 +1,24 @@
+{
+	"name": "Node.js",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/powershell:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode"
+			]
+		}
+	},
+	"remoteEnv": {
+		"BROWSER": "none",
+		"WSL_DISTRO_NAME": "",
+		"WSL_INTEROP": ""
+	},
+	"forwardPorts": [3000]
+}
